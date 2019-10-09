@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Modelo Exemplo</title>
+</head>
+<body>
+    <h1>Lista de Funcinários</h1>
+    <hr/>
+    <table border="1" id="tabelaFuncionarios">
+        <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Salario (R$)</th>
+            <th>Porcentagem Aumento (%)</th>
+            <th>Porcentagem Imposto (%)</th>
+            <th>Novo Salário</th>
+        </tr>
+        <tr class="funcionario">
+            <td class="info-mat">000111</td>
+            <td class="info-nome">João</td>
+            <td class="info-salario">1000</td>
+            <td class="info-aumento">10</td>
+            <td class="info-imposto">5</td>
+            <td class="info-novoSalario">--</td>
+        </tr>
+        <tr class="funcionario">
+            <td class="info-mat">000222</td>
+            <td class="info-nome">Maria</td>
+            <td class="info-salario">1500</td>
+            <td class="info-aumento">20</td>
+            <td class="info-imposto">8</td>
+            <td class="info-novoSalario">--</td>
+        </tr>
+    </table>
+    <h2>Dados Funcionário</h2>
+    <div>
+        <label for="matricula">Matricula</label>
+        <input type="text" id="matricula"/>
+    </div>
+    <div>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome"/>
+    </div>
+    <div>
+        <label for="salario">Salario</label>
+        <input type="text" id="salario"/>
+    </div>
+    <div>
+        <label for="porcAumento">Porcentagem Aumento</label>
+        <input type="text" id="porcAumento"/>
+    </div>
+    <div>
+        <label for="porcImposto">Porcentagem Imposto</label>
+        <input type="text" id="porcImposto"/>
+    </div>
+    <button id="btnCadastrar">Cadastrar</button>
+    <script>
+
+        //Limpa os campos de texto.
+        function clearInput(id){
+
+            let inputClear = document.querySelector(id);
+            inputClear.value = '';
+
+            //document.getElementById(id).value = '';
+        }
+
+        //Anexe um evento de clique a um elemento <button>
+        btnCadastrar.addEventListener("click", function(){
+
+            //Cria "inputMatricula" e armazena nessa variável o valor do input, de id="matriula" do tipo string
+            let inputMatricula = document.querySelector("#matricula");
+
+            //Cria "inputNome" e armazena nessa variável o valor do input, de id="nome" do tipo string
+            let inputNome = document.querySelector("#nome"); 
+
+            //Cria "inputSalario" e armazena nessa variável o valor do input, de id="salario" do tipo string
+            let inputSalario = document.querySelector("#salario"); 
+
+            //Cria "inputAumento" e armazena nessa variável o valor do input, de id="porcAumento" do tipo string
+            let inputAumento = document.querySelector("#porcAumento"); 
+
+            //Cria "inputImposto" e armazena nessa variável o valor do input, de id="porcImposto" do tipo string
+            let inputImposto = document.querySelector("#porcImposto"); 
+
+            //Cria "table" e armazena o id do primeiro elemento filho que correspondente ao id="tabelaFuncionarios"
+            let table = document.querySelector("#tabelaFuncionarios"); 
+
+            //O método createElement () cria um nó do elemento com o nome especificado. Depois é armazenado na variável
+            let  tr = document.createElement("tr");
+            let tdMatricula = document.createElement("td");
+            let tdNome = document.createElement("td");
+            let tdSalario = document.createElement("td");
+            let tdAumento = document.createElement("td");
+            let tdImposto = document.createElement("td");
+            let tdNovoSalario = document.createElement("td");
+
+            tr.classList = "funcionario"; //Adiciona a classe "funcionario" no elemento tr
+            table.appendChild(tr); //O método appendChild() anexa um nó (tr) como o último filho de um nó já existente(table)
+
+            //Matrícula
+            //Atribui a string digita pelo usuário na caixa de texto (inputMatricula) ao nó(TdMatricula)
+            tdMatricula.textContent = inputMatricula.value; 
+            //Adiciona a classe "info-mat" no nó(tdMatricula)
+            tdMatricula.classList = "info-mat";
+            //O método appendChild() anexa um nó (tdMatricula) como o último filho de um nó (tr)
+            tr.appendChild(tdMatricula);
+
+            //Nome
+            //Atribui a string digita pelo usuário na caixa de texto (inputNome) ao nó(tdNome)
+            tdNome.textContent = inputNome.value;
+            //Adiciona a classe "info-nome" no nó(tdNome)
+            tdNome.classList = "info-nome";
+            //O método appendChild() anexa um nó (tdNome) como o último filho de um nó (tr)
+            tr.appendChild(tdNome);
+
+            //Salário
+            //Atribui a string digita pelo usuário na caixa de texto (inputSalario) ao nó(tdSalario)
+            tdSalario.textContent = inputSalario.value;
+            //Adiciona a classe "info-salario" no nó(tdSalario)
+            tdSalario.classList = "info-salario";
+            //O método appendChild() anexa um nó (tdSalario) como o último filho de um nó (tr)
+            tr.appendChild(tdSalario);
+
+            //Aumento
+            //Atribui a string digita pelo usuário na caixa de texto (inpAumento) ao nó(tdAumento)
+            tdAumento.textContent = inputAumento.value;
+            //Adiciona a classe "info-salario" no nó(tdAumento)
+            tdAumento.classList = "info-aumento";
+            //O método appendChild() anexa um nó (tdAumento) como o último filho de um nó (tr)
+            tr.appendChild(tdAumento);
+
+            //Imposto
+            //Atribui a string digita pelo usuário na caixa de texto (inpImposto) ao nó(tdImposto)
+            tdImposto.textContent = inputImposto.value;
+            //Adiciona a classe "info-salario" no nó(tdImposto)
+            tdImposto.classList = "info-imposto";
+            //O método appendChild() anexa um nó (tdImposto) como o último filho de um nó (tr)
+            tr.appendChild(tdImposto);
+
+            //Calcula e atribui ao nó(tdNovoSalario) o resultado da operação...
+            //com os valores dos nós(tdSalario,tdAumento, tdImposto) tranformados em float 
+            tdNovoSalario.textContent = parseFloat(tdSalario.textContent) + (parseFloat(tdSalario.textContent)*parseFloat(tdAumento.textContent)/100) - (parseFloat(tdSalario.textContent)*parseFloat(tdImposto.textContent)/100);
+            //Adiciona a classe "info-salario" no nó(tdNovoSalario)
+            tdNovoSalario.classList = "info-novoSalario";
+             //O método appendChild() anexa um nó (tdNovoSalario) como o último filho de um nó (tr)
+            tr.appendChild(tdNovoSalario);
+
+            //Limpa as caixas de texto 
+            clearInput("#matricula");
+            clearInput("#nome");
+            clearInput("#salario");
+            clearInput("#porcAumento");
+            clearInput("#porcImposto");
+        })
+
+
+        let funcionarios = document.querySelectorAll(".funcionario");
+
+        console.log(funcionarios.length);
+
+        for(let funcionario of funcionarios){
+
+            let salario = parseFloat(funcionario.querySelector(".info-salario").textContent)
+            let aumento = parseFloat(funcionario.querySelector(".info-aumento").textContent)
+            let imposto = parseFloat(funcionario.querySelector(".info-imposto").textContent)
+            let novoSalario = funcionario.querySelector(".info-novoSalario")
+            //let btnCadastrar = document.querySelector("#btnCadastrar"); //Cria a variável que irá representar o botão
+            let nSalario = salario + (salario*aumento/100) - (salario*imposto/100)
+
+            novoSalario.textContent = nSalario
+        }
+
+    </script>   
+</body>
+</html>
